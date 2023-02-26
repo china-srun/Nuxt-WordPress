@@ -6,9 +6,9 @@
       </div>
       <div>
         <h1 class="text-4xl font-bold mb-2">Welcome China</h1>
-        <p class="mb-3">Fuck you and die dumbass</p>
+        <p class="mb-3">Read all the published blogs written by KITian students here.</p>
         <a class="btn bg-sky-500 text-sky-50 py-2 px-4 rounded inline-block hover:bg-sky-600 duration-200">
-            Let's Connect Lol
+            Let's Connect 
         </a>
       </div>
     </PageHeader>
@@ -25,10 +25,6 @@
 // const {data:posts} = useFetch<any>("https://public-api.wordpress.com/rest/v1.1/sites/kirirominstituteoftechnology.wordpress.com/posts?number=100");
 // console.log(posts);
 const {data:posts} = await useWpApi().getPosts<any>();
-console.log(posts)
-const config = useRuntimeConfig();
-const wpApiUrl = config.public.wpApiUrl;
-console.log(wpApiUrl+"posts?number=100");
 
 </script>
 

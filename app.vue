@@ -1,7 +1,8 @@
 <template>
   <div>
-    <MenuTop />
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
