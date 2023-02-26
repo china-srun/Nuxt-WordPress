@@ -18,10 +18,13 @@
           <div v-html="description">
           </div>
         </div>
-        <div class="mt-6 mb-2"><NuxtLink :to="`/home/${slug}`" class="bg-gray-200 p-2 rounded">Read More</NuxtLink></div >
+        <div class="mt-6 mb-2 flex justify-end">
+          <NuxtLink :to="`/home/${slug}`" class="bg-gray-200 p-2 rounded align-middle">Read More</NuxtLink>
+        </div >
       </div>
     </div>
   </div>
+  
 </template>
 
 <script setup lang="ts">
