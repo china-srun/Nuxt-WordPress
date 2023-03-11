@@ -40,8 +40,6 @@
 // const {data:posts} = useFetch<any>("https://public-api.wordpress.com/rest/v1.1/sites/kirirominstituteoftechnology.wordpress.com/posts?number=100");
 // console.log(posts);
 
-const user = useSupabaseUser();
-
 const {data:posts} = await useWpApi().getPosts<any>();
 const grid = ref(true)
 const tile = ref(false)
@@ -56,12 +54,7 @@ function onClickTile() {
   grid.value = false;
 }
 
-watchEffect(() => {
-  console.log(user.value)
-  if (!user.value) {
-    return navigateTo("/");
-  }
-});
+
 </script>
 
 <style scoped>
