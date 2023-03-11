@@ -19,5 +19,6 @@ export default defineNuxtConfig({
     public : {
       wpApiUrl: process.env.WP_URI,
     }
-  }
+  },
+  modules: ['@nuxtjs/supabase'],
 });
