@@ -1,5 +1,7 @@
 <template>
   <main>
+
+
     <section
       class="container mx-auto flex flex-wrap items-center justify-center h-screen"
     >
@@ -39,8 +41,26 @@
         >
           Login
         </button>
+        <div class="flex items-center mt-3">
+          <hr class="border-gray-300 border w-full mr-4">
+          <span class="text-gray-400">Or</span>
+          <hr class="border-gray-300 border w-full ml-4">
+        </div>
+        <div class="flex mt-2">
+          <v-row class="justify-evenly">
+            <button class="w-20 mt-4 bg-red-500 text-white py-2 px-4 rounded shadow-md hover:bg-red-600 transition duration-300 ease-in-out" @click="onSignInWithGoogle()">
+              <v-icon icon="mdi-google"></v-icon>
+            </button>
+            <button class="w-20 mt-4 bg-gray-500 text-white py-2 px-4 rounded shadow-md hover:bg-gray-600 transition duration-300 ease-in-out" @click="onSignInWithGitHub()">
+              <v-icon icon="mdi-git"></v-icon>
+            </button>
+            <button class="w-20 mt-4 bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600 transition duration-300 ease-in-out" @click="onSignInWithTwitter()">
+              <v-icon icon="mdi-twitter"></v-icon>
+            </button>
+          </v-row >
+        </div >
         <MessageFailure :title="errorMsg" v-if="errorMsg"></MessageFailure>
-        <div class="flex justify-between">
+        <div class="flex justify-between mt-3">
           <p class="mt-3 text-sm">
             Don't have any account? <span class="ml-1"></span>
           </p>
@@ -84,12 +104,31 @@ watchEffect(() => {
   }
 });
 
+async function onSignInWithGoogle() {
+  const {data, error} = await auth.signInWithOAuth({
+    provider: 'google'
+  })
+}
+
+async function onSignInWithGitHub() {
+  const { data, error } = await auth.signInWithOAuth({
+    provider: 'github',
+  })
+}
+
+function onSignInWithTwitter() {
+
+}
+
 definePageMeta({
   layout: "login",
 });
+
+
 
 </script>
 
 <style scoped>
 /* @import "/assets/css/login.css"; */
+
 </style>

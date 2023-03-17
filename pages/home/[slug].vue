@@ -1,6 +1,10 @@
 <template>
   <main>
     <section class="header container py-12 sm:py-20">
+      <div class="flex mb-3 cursor-pointer" @click="$router.go(-1)">
+        <v-icon icon="mdi-arrow-left"></v-icon>
+        <p class="ml-1">Back</p>
+      </div >
       <div class="post-title text-center">
         <h1 class="text-3xl sm:text-5xl font-bold leading-normal mb-3">
           <div v-html="post.title"></div>
@@ -32,6 +36,7 @@ const { params } = useRoute();
 const { data: post } = await useWpApi().getSinglePost<any>(
   params.slug as string
 );
+
 console.log(post);
 </script>
 
